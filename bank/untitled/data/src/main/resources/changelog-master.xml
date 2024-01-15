@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="nikita">
+        <sql>
+            CREATE TABLE IF NOT EXISTS t_user (
+            id VARCHAR(255) NOT NULL,
+            user_name VARCHAR(255) NOT NULL,
+            user_second_name VARCHAR(255) NOT NULL,
+            user_mail VARCHAR(255) NOT NULL,
+            user_password VARCHAR(255) NOT NULL,
+            PRIMARY KEY (id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="nikita">
+        <sql>
+            CREATE TABLE IF NOT EXISTS t_transaction(
+            transaction_id VARCHAR(255) NOT NULL,
+            transaction_sum MEDIUMINT NOT NULL,
+            transaction_time TIMESTAMP NOT NULL
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="nikita">
+        <sql>
+            CREATE TABLE IF NOT EXISTS t_credit(
+            credit_id VARCHAR(255) NOT NULL,
+            sum_credit MEDIUMINT NOT NULL,
+            credit_period VARCHAR(255) NOT NULL,
+            credit_currency VARCHAR(255) NOT NULL
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="nikita">
+        <sql>
+            CREATE TABLE IF NOT EXISTS t_cards(
+            card_id VARCHAR(255) NOT NULL,
+            card_name VARCHAR(255) NOT NULL,
+            card_number VARCHAR(255) NOT NULL,
+            card_date VARCHAR(255) NOT NULL,
+            card_cvv VARCHAR(255) NOT NULL,
+            PRIMARY KEY (card_id)
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="nikita">
+        <sql>
+            CREATE TABLE IF NOT EXISTS t_cards(
+            account_id VARCHAR(255) NOT NULL,
+            account_number VARCHAR(255) NOT NULL,
+            account_balance MEDIUMINT NOT NULL,
+            PRIMARY KEY (account_id)
+
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
