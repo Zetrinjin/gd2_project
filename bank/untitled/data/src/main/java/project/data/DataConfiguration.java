@@ -13,14 +13,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import project.data.pojo.Account;
-import project.data.pojo.User;
+import project.data.pojo.*;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = "by.yury.data")
+@ComponentScan(basePackages = "project.data")
 @PropertySource(value = {
         "classpath:liquibase.properties",
         "classpath:hibernate.properties"
@@ -71,9 +70,10 @@ public class DataConfiguration {
         sessionFactory.setDataSource(dataSource);
         sessionFactory.setAnnotatedClasses(
                 Account.class,
-                User.class
-
-
+                User.class,
+                Cards.class,
+                Credit.class,
+                Transaction.class
         );
         return sessionFactory;
     }

@@ -18,8 +18,8 @@ public class User {
     @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "user_second_name")
-    private String userSecondName;
+    @Column(name = "user_first_name")
+    private String name;
 
     @Column(name = "user_password")
     private String password;
@@ -30,13 +30,17 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Account> accounts;
 
+    @OneToMany(mappedBy = "user_credit")
+    private List<Credit> credits;
+
     public User() {
     }
 
-    public User(String id, String userName, String userSecondName, String password, String role) {
+
+    public User(String id, String userName, String name, String password, String role) {
         this.id = id;
         this.userName = userName;
-        this.userSecondName = userSecondName;
+        this.name = name;
         this.password = password;
         this.role = role;
     }
@@ -73,12 +77,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserSecondName() {
-        return userSecondName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserSecondName(String userSecondName) {
-        this.userSecondName = userSecondName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
