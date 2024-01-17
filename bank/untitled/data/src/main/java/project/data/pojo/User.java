@@ -1,14 +1,17 @@
 package project.data.pojo;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
+import java.util.List;
 
 @Entity
 @Table(name = "t_user")
 public class User {
-
+    @Id
+    @GenericGenerator(strategy = "uuid", name = "person_uuid")
+    @GeneratedValue(generator = "person_uuid")
     @Column(name = "user_id")
     private String id;
 
@@ -18,21 +21,40 @@ public class User {
     @Column(name = "user_second_name")
     private String userSecondName;
 
-    @Column(name = "user_mail")
-    private String mail;
-
     @Column(name = "user_password")
     private String password;
+
+    @Column(name = "user_role")
+    private String role;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Account> accounts;
 
     public User() {
     }
 
-    public User(String id, String userName, String userSecondName, String mail, String password) {
+    public User(String id, String userName, String userSecondName, String password, String role) {
         this.id = id;
         this.userName = userName;
         this.userSecondName = userSecondName;
-        this.mail = mail;
         this.password = password;
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     public String getId() {
@@ -57,14 +79,6 @@ public class User {
 
     public void setUserSecondName(String userSecondName) {
         this.userSecondName = userSecondName;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
     }
 
     public String getPassword() {

@@ -1,29 +1,36 @@
 package project.data.pojo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
+import java.util.List;
 
 @Entity
 @Table(name = "t_account")
 public class Account {
 
+    @Id
+    @GenericGenerator(strategy = "uuid", name = "person_uuid")
+    @GeneratedValue(generator = "person_uuid")
     @Column(name = "account_id")
     private String accountId;
 
     @Column(name = "account_number")
     private String accountNumber;
 
-    @Column(name = "account_balance")
-    private double accountBalance;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<Cards> cards;
 
     public Account() {
     }
 
-    public Account(String accountId, String accountNumber, double accountBalance) {
+    public Account(String accountId, String accountNumber) {
         this.accountId = accountId;
         this.accountNumber = accountNumber;
-        this.accountBalance = accountBalance;
     }
 
     public String getAccountId() {
@@ -42,11 +49,19 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
-    public double getAccountBalance() {
-        return accountBalance;
+    public User getUser() {
+        return user;
     }
 
-    public void setAccountBalance(double accountBalance) {
-        this.accountBalance = accountBalance;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Cards> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Cards> cards) {
+        this.cards = cards;
     }
 }

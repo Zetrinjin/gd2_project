@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import project.data.pojo.Cards;
 import project.data.pojo.User;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public class UserDaoImpl implements UserDao{
@@ -14,13 +16,16 @@ public class UserDaoImpl implements UserDao{
     private final SessionFactory sessionFactory;
 
     public UserDaoImpl(SessionFactory sessionFactory) {
+        if (sessionFactory == null) {
+            throw new IllegalArgumentException("An argument sessionFactory cannot be null");
+        }
         this.sessionFactory = sessionFactory;
     }
 
     @Override
     public void createUser(User user) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(user);
+        session.persist(user);
 
     }
 
@@ -41,8 +46,14 @@ public class UserDaoImpl implements UserDao{
     public boolean deleteUser(User user) {
         Session session = sessionFactory.getCurrentSession();
         if (user == null) return false;
-        session.delete(user);
+        session.remove(user);
         return true;
 
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("FROM User", User.class).getResultList();
     }
 }

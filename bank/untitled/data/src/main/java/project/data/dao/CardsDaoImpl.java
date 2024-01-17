@@ -13,13 +13,16 @@ public class CardsDaoImpl implements CardsDao{
     private final SessionFactory sessionFactory;
 
     public CardsDaoImpl(SessionFactory sessionFactory) {
+        if (sessionFactory == null) {
+            throw new IllegalArgumentException("An argument sessionFactory cannot be null");
+        }
         this.sessionFactory = sessionFactory;
     }
 
     @Override
     public void createCard(Cards cards) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(cards);
+        session.persist(cards);
 
     }
 
@@ -41,7 +44,7 @@ public class CardsDaoImpl implements CardsDao{
     public boolean deleteCard(Cards cards) {
         Session session = sessionFactory.getCurrentSession();
         if (cards == null) return false;
-        session.delete(cards);
+        session.remove(cards);
         return true;
 
     }

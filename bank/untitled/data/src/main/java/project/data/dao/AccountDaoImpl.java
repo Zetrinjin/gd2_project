@@ -13,13 +13,16 @@ public class AccountDaoImpl implements AccountDao{
     private final SessionFactory sessionFactory;
 
     public AccountDaoImpl(SessionFactory sessionFactory) {
+        if (sessionFactory == null) {
+            throw new IllegalArgumentException("An argument sessionFactory cannot be null");
+        }
         this.sessionFactory = sessionFactory;
     }
 
     @Override
     public void createAccount(Account account) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(account);
+        session.persist(account);
     }
 
     @Override
@@ -40,7 +43,7 @@ public class AccountDaoImpl implements AccountDao{
     public boolean deleteAccount(Account account) {
         Session session = sessionFactory.getCurrentSession();
         if (account == null) return false;
-        session.delete(account);
+        session.remove(account);
         return true;
     }
 }

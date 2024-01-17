@@ -1,11 +1,15 @@
 package project.data.pojo;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "t_cards")
 public class Cards {
 
+    @Id
+    @GenericGenerator(strategy = "uuid", name = "person_uuid")
+    @GeneratedValue(generator = "person_uuid")
     @Column(name = "card_id")
     private String id;
 
@@ -18,6 +22,9 @@ public class Cards {
     @Column(name = "card_date")
     private String cardDate;
 
+    @Column(name = "card_balance")
+    private double cardBalance;
+
     @Column(name = "card_cvv")
     private int cvv;
     @ManyToOne
@@ -27,13 +34,21 @@ public class Cards {
     public Cards() {
     }
 
-    public Cards(String id, String cardName, double cardNumber, String cardDate, int cvv, Account account) {
+    public Cards(String id, String cardName, double cardNumber, String cardDate, double cardBalance, int cvv) {
         this.id = id;
         this.cardName = cardName;
         this.cardNumber = cardNumber;
         this.cardDate = cardDate;
+        this.cardBalance = cardBalance;
         this.cvv = cvv;
-        this.account = account;
+    }
+
+    public double getCardBalance() {
+        return cardBalance;
+    }
+
+    public void setCardBalance(double cardBalance) {
+        this.cardBalance = cardBalance;
     }
 
     public String getId() {

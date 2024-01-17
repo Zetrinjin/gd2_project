@@ -7,7 +7,7 @@ public interface TransactionDao {
     void createTransaction(Transaction transaction);
     Transaction getTransactionById(String id);
 
-    /*void updateUser(User user);
+    void updateTransaction(Transaction transaction);
 
-    boolean deleteUser(User user);*/
+    boolean deleteTransaction(Transaction transaction);
 }

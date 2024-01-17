@@ -1,8 +1,7 @@
 package project.data.pojo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
 
@@ -10,6 +9,9 @@ import java.time.LocalDateTime;
 @Table(name = "t_transaction")
 public class Transaction {
 
+    @Id
+    @GenericGenerator(strategy = "uuid", name = "person_uuid")
+    @GeneratedValue(generator = "person_uuid")
     @Column(name = "transaction_id")
     private String transactionId;
 
