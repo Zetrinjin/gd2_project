@@ -16,19 +16,28 @@ public class Transaction {
     private String transactionId;
 
     @Column(name = "transaction_sum")
-    private double transactionSum;
+    private String transactionSum;
 
-    @Column(name = "transaction_time")
-    private LocalDateTime transactionTime;
+
+    @Column(name = "card_sender")
+    private String cardSender;
+
+
+    @Column(name = "card_recipient")
+    private String cardRecipient;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Transaction() {
     }
 
-
-    public Transaction(String transactionId, double transactionSum, LocalDateTime transactionTime) {
+    public Transaction(String transactionId, String transactionSum, String cardSender, String cardRecipient) {
         this.transactionId = transactionId;
         this.transactionSum = transactionSum;
-        this.transactionTime = transactionTime;
+        this.cardSender = cardSender;
+        this.cardRecipient = cardRecipient;
     }
 
     public String getTransactionId() {
@@ -39,19 +48,35 @@ public class Transaction {
         this.transactionId = transactionId;
     }
 
-    public double getTransactionSum() {
+    public String getTransactionSum() {
         return transactionSum;
     }
 
-    public void setTransactionSum(double transactionSum) {
+    public void setTransactionSum(String transactionSum) {
         this.transactionSum = transactionSum;
     }
 
-    public LocalDateTime getTransactionTime() {
-        return transactionTime;
+    public String getCardSender() {
+        return cardSender;
     }
 
-    public void setTransactionTime(LocalDateTime transactionTime) {
-        this.transactionTime = transactionTime;
+    public void setCardSender(String cardSender) {
+        this.cardSender = cardSender;
+    }
+
+    public String getCardRecipient() {
+        return cardRecipient;
+    }
+
+    public void setCardRecipient(String cardRecipient) {
+        this.cardRecipient = cardRecipient;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

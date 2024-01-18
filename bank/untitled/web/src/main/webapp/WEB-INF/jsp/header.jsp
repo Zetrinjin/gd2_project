@@ -13,5 +13,6 @@
     <a class="nav-link active" aria-current="page" href="/web/cards">Cards</a>
     <a class="nav-link active" aria-current="page" href="/web/news">News</a>
     <a class="nav-link active" aria-current="page" href="/web/credits">credits</a>
+    <a class="nav-link active" aria-current="page" href="/web/registration">registration</a>
     <a class="nav-link disabled" aria-disabled="true">Help</a>
 </nav>

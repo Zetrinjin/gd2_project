@@ -14,10 +14,10 @@ public class Credit {
     private String creditId;
 
     @Column(name = "sum_credit")
-    private double sumCredit;
+    private String sumCredit;
 
-    @Column(name = "credit_period")
-    private String creditPersent;
+    @Column(name = "credit_percent")
+    private String creditPercent;
 
     @ManyToOne()
     @JoinColumn(name = "user_id")
@@ -27,10 +27,10 @@ public class Credit {
     public Credit() {
     }
 
-    public Credit(String creditId, double sumCredit, String creditPersent) {
+    public Credit(String creditId, String sumCredit, String creditPercent) {
         this.creditId = creditId;
         this.sumCredit = sumCredit;
-        this.creditPersent = creditPersent;
+        this.creditPercent = creditPercent;
     }
 
     public String getCreditId() {
@@ -41,20 +41,20 @@ public class Credit {
         this.creditId = creditId;
     }
 
-    public double getSumCredit() {
+    public String getSumCredit() {
         return sumCredit;
     }
 
-    public void setSumCredit(double sumCredit) {
+    public void setSumCredit(String sumCredit) {
         this.sumCredit = sumCredit;
     }
 
-    public String getCreditPersent() {
-        return creditPersent;
+    public String getCreditPercent() {
+        return creditPercent;
     }
 
-    public void setCreditPersent(String creditPersent) {
-        this.creditPersent = creditPersent;
+    public void setCreditPercent(String creditPercent) {
+        this.creditPercent = creditPercent;
     }
 
     public User getUser() {

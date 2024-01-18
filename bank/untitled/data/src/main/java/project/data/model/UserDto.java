@@ -1,8 +1,10 @@
 package project.data.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import project.data.pojo.Account;
+import project.data.pojo.Credit;
+
+import java.util.List;
 
 
 public class UserDto {
@@ -14,23 +16,34 @@ public class UserDto {
     private String userName;
 
 
-    private String userSecondName;
-
-
-    private String mail;
+    private String name;
 
 
     private String password;
 
+
+    private String role;
+
+
+
     public UserDto() {
     }
 
-    public UserDto(String id, String userName, String userSecondName, String mail, String password) {
+
+    public UserDto(String id, String userName, String name, String password, String role) {
         this.id = id;
         this.userName = userName;
-        this.userSecondName = userSecondName;
-        this.mail = mail;
+        this.name = name;
         this.password = password;
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getId() {
@@ -49,20 +62,12 @@ public class UserDto {
         this.userName = userName;
     }
 
-    public String getUserSecondName() {
-        return userSecondName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserSecondName(String userSecondName) {
-        this.userSecondName = userSecondName;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {

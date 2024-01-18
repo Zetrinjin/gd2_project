@@ -11,7 +11,7 @@ public class Cards {
     @GenericGenerator(strategy = "uuid", name = "person_uuid")
     @GeneratedValue(generator = "person_uuid")
     @Column(name = "card_id")
-    private String id;
+    private String cardId;
 
     @Column(name = "card_name")
     private String cardName;
@@ -35,7 +35,7 @@ public class Cards {
     }
 
     public Cards(String id, String cardName, double cardNumber, String cardDate, double cardBalance, int cvv) {
-        this.id = id;
+        this.cardId = id;
         this.cardName = cardName;
         this.cardNumber = cardNumber;
         this.cardDate = cardDate;
@@ -52,11 +52,11 @@ public class Cards {
     }
 
     public String getId() {
-        return id;
+        return cardId;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.cardId = id;
     }
 
     public String getCardName() {
