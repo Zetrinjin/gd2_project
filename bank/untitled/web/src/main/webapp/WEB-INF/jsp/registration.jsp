@@ -10,8 +10,6 @@
         <label for="userName">Логин:</label>
         <input type="text" id="userName" name="userName" required ><br>
 
-        <label for="name">Имя:</label>
-        <input type="text" id="name" name="name" required ><br>
 
         <label for="password">Пароль:</label>
         <input type="text" id="password" name="password" required ><br>

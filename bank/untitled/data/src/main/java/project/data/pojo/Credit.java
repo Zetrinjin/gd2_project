@@ -11,7 +11,7 @@ public class Credit {
     @GenericGenerator(strategy = "uuid", name = "person_uuid")
     @GeneratedValue(generator = "person_uuid")
     @Column(name = "credit_id")
-    private String creditId;
+    private String id;
 
     @Column(name = "sum_credit")
     private String sumCredit;
@@ -21,24 +21,24 @@ public class Credit {
 
     @ManyToOne()
     @JoinColumn(name = "user_id")
-    private User user;
+    private BankUser bankUser;
 
 
     public Credit() {
     }
 
     public Credit(String creditId, String sumCredit, String creditPercent) {
-        this.creditId = creditId;
+        this.id = creditId;
         this.sumCredit = sumCredit;
         this.creditPercent = creditPercent;
     }
 
     public String getCreditId() {
-        return creditId;
+        return id;
     }
 
     public void setCreditId(String creditId) {
-        this.creditId = creditId;
+        this.id = creditId;
     }
 
     public String getSumCredit() {
@@ -57,11 +57,11 @@ public class Credit {
         this.creditPercent = creditPercent;
     }
 
-    public User getUser() {
-        return user;
+    public BankUser getUser() {
+        return bankUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(BankUser bankUser) {
+        this.bankUser = bankUser;
     }
 }

@@ -11,7 +11,7 @@ public class Cards {
     @GenericGenerator(strategy = "uuid", name = "person_uuid")
     @GeneratedValue(generator = "person_uuid")
     @Column(name = "card_id")
-    private String cardId;
+    private String id;
 
     @Column(name = "card_name")
     private String cardName;
@@ -19,8 +19,6 @@ public class Cards {
     @Column(name = "card_number")
     private double cardNumber;
 
-    @Column(name = "card_date")
-    private String cardDate;
 
     @Column(name = "card_balance")
     private double cardBalance;
@@ -34,11 +32,10 @@ public class Cards {
     public Cards() {
     }
 
-    public Cards(String id, String cardName, double cardNumber, String cardDate, double cardBalance, int cvv) {
-        this.cardId = id;
+    public Cards(String id, String cardName, double cardNumber, double cardBalance, int cvv) {
+        this.id = id;
         this.cardName = cardName;
         this.cardNumber = cardNumber;
-        this.cardDate = cardDate;
         this.cardBalance = cardBalance;
         this.cvv = cvv;
     }
@@ -52,11 +49,11 @@ public class Cards {
     }
 
     public String getId() {
-        return cardId;
+        return id;
     }
 
     public void setId(String id) {
-        this.cardId = id;
+        this.id = id;
     }
 
     public String getCardName() {
@@ -73,14 +70,6 @@ public class Cards {
 
     public void setCardNumber(double cardNumber) {
         this.cardNumber = cardNumber;
-    }
-
-    public String getCardDate() {
-        return cardDate;
-    }
-
-    public void setCardDate(String cardDate) {
-        this.cardDate = cardDate;
     }
 
     public int getCvv() {

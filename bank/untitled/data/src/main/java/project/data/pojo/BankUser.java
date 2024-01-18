@@ -1,39 +1,42 @@
-package project.data.model;
+package project.data.pojo;
+
 
 import jakarta.persistence.*;
-import project.data.pojo.Account;
-import project.data.pojo.Credit;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.List;
 
-
-public class UserDto {
-
-
+@Entity
+@Table(name = "t_bank_user")
+public class BankUser {
+    @Id
+    @GenericGenerator(strategy = "uuid", name = "person_uuid")
+    @GeneratedValue(generator = "person_uuid")
+    @Column(name = "user_id")
     private String id;
 
-
+    @Column(name = "user_name")
     private String userName;
 
-
-    private String name;
-
-
+    @Column(name = "user_password")
     private String password;
 
-
+    @Column(name = "user_role")
     private String role;
 
+    @OneToMany(mappedBy = "bankUser", cascade = CascadeType.ALL)
+    private List<Account> accounts;
 
+    @OneToMany(mappedBy = "bankUser")
+    private List<Credit> credits;
 
-    public UserDto() {
+    public BankUser() {
     }
 
 
-    public UserDto(String id, String userName, String name, String password, String role) {
+    public BankUser(String id, String userName, String password, String role) {
         this.id = id;
         this.userName = userName;
-        this.name = name;
         this.password = password;
         this.role = role;
     }
@@ -44,6 +47,14 @@ public class UserDto {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     public String getId() {
@@ -60,14 +71,6 @@ public class UserDto {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getPassword() {

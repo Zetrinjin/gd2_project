@@ -8,33 +8,18 @@
                     <fieldset>
                         <legend>Создание аккаунта</legend>
 
-                        <label for="name"> Имя</label>
-                        <input type="text" name="name" id="name"  required>*
+                        <label for="accountCurrency"> Валюта:</label>
 
+                         <select id="accountCurrency" name="accountCurrency" required >*
+                                    <option value="usd">USD</option>
+                                    <option value="byn">BYN</option>
+                                    <option value="rub">RUB</option>
 
-                        <br><br>
-                        <label for="lname">Фамилия</label>
-                        <input type="text" name="lname" id="lname" required>*
-
-                        <br><br>
-                        <label for="tel">Телефон</label>
-                        <input type="tel" name="tel" id="tel" required>*
-
-                        <br><br>
-                        <label for="email">E-mail</label>
-                        <input type="email" name="mail" id="mail" required>*
-
-
-                        <br>
-
-                        <input type="checkbox" name="saveuser">Остаться в системе
-                        <br>
+                         </select>
 
                         <em>* - обязательное поле</em>
                         <br><br>
                         <input type="submit" value="Регистрация">
-
-
 
                     </fieldset>
                 </form>

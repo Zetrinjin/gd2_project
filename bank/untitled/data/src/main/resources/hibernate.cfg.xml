@@ -15,7 +15,7 @@
         <mapping class="project.data.pojo.Cards"/>
         <mapping class="project.data.pojo.Credit"/>
         <mapping class="project.data.pojo.Transaction"/>
-        <mapping class="project.data.pojo.User"/>
+        <mapping class="project.data.pojo.BankUser"/>
 
 
     </session-factory>

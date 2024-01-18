@@ -1,37 +1,23 @@
-package project.data.pojo;
+package project.data.model;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
+public class TransactionDto {
 
-@Entity
-@Table(name = "t_transaction")
-public class Transaction {
-
-    @Id
-    @GenericGenerator(strategy = "uuid", name = "person_uuid")
-    @GeneratedValue(generator = "person_uuid")
-    @Column(name = "transaction_id")
     private String id;
 
-    @Column(name = "transaction_sum")
     private String transactionSum;
 
-
-    @Column(name = "card_sender")
     private String cardSender;
 
-
-    @Column(name = "card_recipient")
     private String cardRecipient;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private BankUser bankUser;
+    private BankUser user;*/
 
-    public Transaction() {
+    public TransactionDto() {
     }
 
-    public Transaction(String transactionId, String transactionSum, String cardSender, String cardRecipient) {
+    public TransactionDto(String transactionId, String transactionSum, String cardSender, String cardRecipient) {
         this.id = transactionId;
         this.transactionSum = transactionSum;
         this.cardSender = cardSender;
@@ -70,11 +56,11 @@ public class Transaction {
         this.cardRecipient = cardRecipient;
     }
 
-    public BankUser getUser() {
-        return bankUser;
+   /* public BankUser getUser() {
+        return user;
     }
 
-    public void setUser(BankUser bankUser) {
-        this.bankUser = bankUser;
-    }
+    public void setUser(BankUser user) {
+        this.user = user;
+    }*/
 }

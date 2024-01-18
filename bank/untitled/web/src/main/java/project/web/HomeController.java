@@ -21,4 +21,9 @@ public class HomeController {
         return "converter";
     }
 
+    @GetMapping(value = "/registraited")
+    public String getReg() {
+        return "registraited";
+    }
+
 }

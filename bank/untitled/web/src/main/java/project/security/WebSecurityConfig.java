@@ -1,4 +1,4 @@
-/*package project.security;
+package project.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,10 +33,10 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(Customizer.withDefaults())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/home", "/static/**", "/WEB-INF/jsp/**").permitAll()
+                        .requestMatchers("/", "/home","/registration", "/static/**", "/WEB-INF/jsp/**").permitAll()
                         .requestMatchers("/login", "/api/**").anonymous()
                         .requestMatchers("/logout").authenticated()
-                        .requestMatchers("/add**").hasRole("ADMIN")
+                        .requestMatchers("/delete**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .logout(Customizer.withDefaults())
@@ -49,4 +49,4 @@ public class WebSecurityConfig {
     public HandlerMappingIntrospector mvcHandlerMappingIntrospector() {
         return new HandlerMappingIntrospector();
     }
-}*/
+}

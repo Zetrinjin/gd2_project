@@ -27,8 +27,6 @@
     <tr>
         <td><a href="/web/cards">тут</a> находятся карты  </td>
 
-
-
         <td><a href="/web/converter">тут</a> будет конвертер </td>
 
         <td><a href="/web/credits">тут</a> находятся кредиты </td>
@@ -44,6 +42,10 @@
           <tr>
              <td><a href="/web/account">тут</a> у нас аккаунты</td>
           </tr>
+
+          <tr>
+             <td><a href="/web/registraited">тут</a> у нас зарег пользователи</td>
+           </tr>
 
 
 </table>

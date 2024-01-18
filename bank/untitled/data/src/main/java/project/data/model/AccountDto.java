@@ -1,33 +1,34 @@
 package project.data.model;
 
-import jakarta.persistence.Column;
+import project.data.pojo.BankUser;
 
 public class AccountDto {
 
-
-    private String accountId;
-
+    private String id;
 
     private String accountNumber;
 
+    private String accountCurrency;
 
-    private double accountBalance;
+    private BankUser bankUser;
 
     public AccountDto() {
     }
 
-    public AccountDto(String accountId, String accountNumber, double accountBalance) {
-        this.accountId = accountId;
+    public AccountDto(String accountId, String accountNumber, String accountCurrency) {
+        this.id = accountId;
         this.accountNumber = accountNumber;
-        this.accountBalance = accountBalance;
+        this.accountCurrency = accountCurrency;
     }
 
+
+
     public String getAccountId() {
-        return accountId;
+        return id;
     }
 
     public void setAccountId(String accountId) {
-        this.accountId = accountId;
+        this.id = accountId;
     }
 
     public String getAccountNumber() {
@@ -38,12 +39,19 @@ public class AccountDto {
         this.accountNumber = accountNumber;
     }
 
-    public double getAccountBalance() {
-        return accountBalance;
+    public String getAccountCurrency() {
+        return accountCurrency;
     }
 
-    public void setAccountBalance(double accountBalance) {
-        this.accountBalance = accountBalance;
+    public void setAccountCurrency(String accountCurrency) {
+        this.accountCurrency = accountCurrency;
     }
 
+    public BankUser getUser() {
+        return bankUser;
+    }
+
+    public void setUser(BankUser bankUser) {
+        this.bankUser = bankUser;
+    }
 }

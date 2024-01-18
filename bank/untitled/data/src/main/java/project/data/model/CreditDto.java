@@ -5,7 +5,7 @@ import jakarta.persistence.Column;
 public class CreditDto {
 
 
-    private String creditId;
+    private String id;
 
 
     private String sumCredit;
@@ -14,24 +14,22 @@ public class CreditDto {
     private String creditPeriod;
 
 
-    private String creditCurrency;
-
     public CreditDto() {
     }
 
-    public CreditDto(String creditId, String sumCredit, String creditPeriod, String creditCurrency) {
-        this.creditId = creditId;
+    public CreditDto(String creditId, String sumCredit, String creditPeriod) {
+        this.id = creditId;
         this.sumCredit = sumCredit;
         this.creditPeriod = creditPeriod;
-        this.creditCurrency = creditCurrency;
+
     }
 
     public String getCreditId() {
-        return creditId;
+        return id;
     }
 
     public void setCreditId(String creditId) {
-        this.creditId = creditId;
+        this.id = creditId;
     }
 
     public String getSumCredit() {
@@ -50,11 +48,4 @@ public class CreditDto {
         this.creditPeriod = creditPeriod;
     }
 
-    public String getCreditCurrency() {
-        return creditCurrency;
-    }
-
-    public void setCreditCurrency(String creditCurrency) {
-        this.creditCurrency = creditCurrency;
-    }
 }

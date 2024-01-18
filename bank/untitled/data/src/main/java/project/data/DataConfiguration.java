@@ -12,8 +12,6 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import project.data.pojo.*;
 
 import javax.sql.DataSource;
@@ -74,7 +72,7 @@ public class DataConfiguration {
         sessionFactory.setDataSource(dataSource);
         sessionFactory.setAnnotatedClasses(
                 Account.class,
-                User.class,
+                BankUser.class,
                 Cards.class,
                 Credit.class,
                 Transaction.class
