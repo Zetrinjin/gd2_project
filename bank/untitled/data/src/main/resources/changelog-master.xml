@@ -9,8 +9,10 @@
         <sql>
             CREATE TABLE IF NOT EXISTS t_user (
             user_id VARCHAR(255) NOT NULL,
+            user_name VARCHAR(255) NOT NULL,
             user_first_name VARCHAR(255) NOT NULL,
             user_password VARCHAR(255) NOT NULL,
+            user_role VARCHAR(255) NOT NULL,
             PRIMARY KEY (user_id)
             );
         </sql>
@@ -54,7 +56,7 @@
 
     <changeSet id="5" author="nikita">
         <sql>
-            CREATE TABLE IF NOT EXISTS t_cards(
+            CREATE TABLE IF NOT EXISTS t_account(
             account_id VARCHAR(255) NOT NULL,
             PRIMARY KEY (account_id)
             );

@@ -16,4 +16,9 @@ public class HomeController {
         return "news";
     }
 
+    @GetMapping(value = "/converter")
+    public String getConv() {
+        return "converter";
+    }
+
 }

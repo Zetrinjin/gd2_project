@@ -42,7 +42,7 @@
      </tr>
 
           <tr>
-             <td><a href="/web/accaunt">тут</a> у нас аккаунты</td>
+             <td><a href="/web/account">тут</a> у нас аккаунты</td>
           </tr>
 
 

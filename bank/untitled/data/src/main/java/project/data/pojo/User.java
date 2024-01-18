@@ -30,7 +30,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Account> accounts;
 
-    @OneToMany(mappedBy = "user_credit")
+    @OneToMany(mappedBy = "user")
     private List<Credit> credits;
 
     public User() {

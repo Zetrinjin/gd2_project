@@ -14,13 +14,13 @@ public class Registration {
     @Autowired
     private UserService userService;
 
-    @GetMapping(name = "/registration_1")
+    @GetMapping(value = "/registration")
     public String getRegistration() {
-        return "registration_1";
+        return "registration";
     }
 
-    @PostMapping("/registration_1")
-    public String saveUser(@ModelAttribute("registration_1")UserDto userDto){
+    @PostMapping("/registration")
+    public String saveUser(@ModelAttribute("registration")UserDto userDto){
         userService.registration(userDto);
         return "redirect:/home";
 

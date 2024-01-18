@@ -5,7 +5,7 @@
 
 
 <div>
-<form action="/web/cards">
+<form method="post" action="/web/cards">
   <label for="currency">Сurrency:</label><br>
  <form>
    <input type="radio" id="Byn" name="currency" value="BYN">

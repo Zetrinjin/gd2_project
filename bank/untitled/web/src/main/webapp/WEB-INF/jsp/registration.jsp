@@ -6,9 +6,9 @@
 <div >
     <h3>Добро пожаловать в регистрацию</h3>
 
-    <form method="post" action="/web/saveUser" >
-        <label for="username">Логин:</label>
-        <input type="text" id="username" name="username" required ><br>
+    <form method="post"  action="/web/registration" >
+        <label for="userName">Логин:</label>
+        <input type="text" id="userName" name="userName" required ><br>
 
         <label for="name">Имя:</label>
         <input type="text" id="name" name="name" required ><br>
