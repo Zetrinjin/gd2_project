@@ -13,14 +13,17 @@ public class Account {
     @GenericGenerator(strategy = "uuid", name = "person_uuid")
     @GeneratedValue(generator = "person_uuid")
     @Column(name = "account_id")
-    private String accountId;
+    private String id;
 
     @Column(name = "account_number")
     private String accountNumber;
 
+    @Column(name = "account_currency")
+    private String accountCurrency;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private BankUser bankUser;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Cards> cards;
@@ -28,17 +31,26 @@ public class Account {
     public Account() {
     }
 
-    public Account(String accountId, String accountNumber) {
-        this.accountId = accountId;
+    public Account(String accountId, String accountNumber, String accountCurrency) {
+        this.id = accountId;
         this.accountNumber = accountNumber;
+        this.accountCurrency = accountCurrency;
+    }
+
+    public String getAccountCurrency() {
+        return accountCurrency;
+    }
+
+    public void setAccountCurrency(String accountCurrency) {
+        this.accountCurrency = accountCurrency;
     }
 
     public String getAccountId() {
-        return accountId;
+        return id;
     }
 
     public void setAccountId(String accountId) {
-        this.accountId = accountId;
+        this.id = accountId;
     }
 
     public String getAccountNumber() {
@@ -49,12 +61,12 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
-    public User getUser() {
-        return user;
+    public BankUser getUser() {
+        return bankUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(BankUser bankUser) {
+        this.bankUser = bankUser;
     }
 
     public List<Cards> getCards() {
