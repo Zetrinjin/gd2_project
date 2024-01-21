@@ -5,23 +5,23 @@
 
 
 <div>
-<form action="/web/credits">
- <legend>Создание кредитки</legend>
-  <label for="currency">Сurrency:</label><br>
- <form>
-   <input type="radio" id="Byn" name="currency" value="BYN">
-   <label for="BYN">BYN</label>
-   <input type="radio" id="Usd" name="currency" value="USD">
-   <label for="USD">USD</label>
-   <input type="radio" id="Rub" name="currency" value="RUB">
-   <label for="RUB">RUB</label>
- </form>
- <label for="credit_period">Credit period:</label><br>
-  <input type="number" id="period" name="period" ><br>
-  <label for="credit_sum">Credit sum:</label><br>
-  <input type="number" id="credit_sum" name="credit_sum" ><br><br>
-  <input type="submit" value="Submit">
+<form method="post"  action="/web/credits">
+ <legend>Создание кредита</legend>
+
+  <label for="sumCredit">сумма кредита:</label><br>
+  <input type="text" id="sumCredit" name="sumCredit" ><br><br>
+  <label for="creditPercent"> Валюта:</label>
+
+                          <select id="creditPercent" name="creditPercent" required >*
+                                      <option value="2">2%</option>
+                                      <option value="5">5%</option>
+                                      <option value="8">8%</option>
+
+                          </select>
+  <input type="submit" value="стать рабом!">
 </form>
+
+
  </div>
 
 

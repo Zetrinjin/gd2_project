@@ -14,5 +14,12 @@
     <a class="nav-link active" aria-current="page" href="/web/news">News</a>
     <a class="nav-link active" aria-current="page" href="/web/credits">credits</a>
     <a class="nav-link active" aria-current="page" href="/web/registration">registration</a>
+    <a class="nav-link active" aria-current="page" href="/web/transaction">transaction</a>
+    <sec:authorize access="isAuthenticated()">
+        <a class="nav-link" href="/web/logout">Logout</a>
+    </sec:authorize>
+    <sec:authorize access="!isAuthenticated()">
+        <a class="nav-link" href="/web/login">Login</a>
+    </sec:authorize>
     <a class="nav-link disabled" aria-disabled="true">Help</a>
 </nav>

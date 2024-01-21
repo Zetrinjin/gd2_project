@@ -8,8 +8,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class Cards {
 
     @Id
-    @GenericGenerator(strategy = "uuid", name = "person_uuid")
-    @GeneratedValue(generator = "person_uuid")
+    @GenericGenerator(strategy = "uuid", name = "cards_uuid")
+    @GeneratedValue(generator = "cards_uuid")
     @Column(name = "card_id")
     private String id;
 
@@ -17,7 +17,7 @@ public class Cards {
     private String cardName;
 
     @Column(name = "card_number")
-    private double cardNumber;
+    private String cardNumber;
 
 
     @Column(name = "card_balance")
@@ -25,14 +25,14 @@ public class Cards {
 
     @Column(name = "card_cvv")
     private int cvv;
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "account_id")
-    private Account account;
+    private Account account;*/
 
     public Cards() {
     }
 
-    public Cards(String id, String cardName, double cardNumber, double cardBalance, int cvv) {
+    public Cards(String id, String cardName, String cardNumber, double cardBalance, int cvv) {
         this.id = id;
         this.cardName = cardName;
         this.cardNumber = cardNumber;
@@ -64,11 +64,11 @@ public class Cards {
         this.cardName = cardName;
     }
 
-    public double getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(double cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
@@ -80,11 +80,11 @@ public class Cards {
         this.cvv = cvv;
     }
 
-    public Account getAccount() {
+    /*public Account getAccount() {
         return account;
     }
 
     public void setAccount(Account account) {
         this.account = account;
-    }
+    }*/
 }

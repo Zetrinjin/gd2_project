@@ -8,8 +8,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class Credit {
 
     @Id
-    @GenericGenerator(strategy = "uuid", name = "person_uuid")
-    @GeneratedValue(generator = "person_uuid")
+    @GenericGenerator(strategy = "uuid", name = "credit_uuid")
+    @GeneratedValue(generator = "credit_uuid")
     @Column(name = "credit_id")
     private String id;
 
@@ -19,9 +19,9 @@ public class Credit {
     @Column(name = "credit_percent")
     private String creditPercent;
 
-    @ManyToOne()
+    /*@ManyToOne()
     @JoinColumn(name = "user_id")
-    private BankUser bankUser;
+    private BankUser bankUser;*/
 
 
     public Credit() {
@@ -57,11 +57,11 @@ public class Credit {
         this.creditPercent = creditPercent;
     }
 
-    public BankUser getUser() {
+   /* public BankUser getUser() {
         return bankUser;
     }
 
     public void setUser(BankUser bankUser) {
         this.bankUser = bankUser;
-    }
+    }*/
 }

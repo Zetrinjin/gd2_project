@@ -2,6 +2,7 @@ package project.data.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import project.data.pojo.Cards;
@@ -48,4 +49,14 @@ public class CardsDaoImpl implements CardsDao{
         return true;
 
     }
+
+    @Override
+    public Cards getCardByNumber(String cardNumber) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "FROM Cards where cardNumber = :cardnumber";
+        Query<Cards> query = session.createQuery(hql,Cards.class);
+        query.setParameter("cardnumber", cardNumber);
+        return query.uniqueResult();
+    }
+
 }

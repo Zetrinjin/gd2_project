@@ -57,10 +57,10 @@ public class BankUserDaoImpl implements BankUserDao {
     }
 
     @Override
-    public List<BankUser> findByUserName(String userName) {
+    public List<BankUser> findByUserName(String username) {
         return sessionFactory.getCurrentSession()
                 .createQuery("from BankUser au where au.username=:username", BankUser.class)
-                .setParameter("username", userName)
+                .setParameter("username", username)
                 .list();
     }
 

@@ -4,7 +4,7 @@ public class TransactionDto {
 
     private String id;
 
-    private String transactionSum;
+    private double transactionSum;
 
     private String cardSender;
 
@@ -17,7 +17,7 @@ public class TransactionDto {
     public TransactionDto() {
     }
 
-    public TransactionDto(String transactionId, String transactionSum, String cardSender, String cardRecipient) {
+    public TransactionDto(String transactionId, double transactionSum, String cardSender, String cardRecipient) {
         this.id = transactionId;
         this.transactionSum = transactionSum;
         this.cardSender = cardSender;
@@ -32,11 +32,11 @@ public class TransactionDto {
         this.id = transactionId;
     }
 
-    public String getTransactionSum() {
+    public double getTransactionSum() {
         return transactionSum;
     }
 
-    public void setTransactionSum(String transactionSum) {
+    public void setTransactionSum(double transactionSum) {
         this.transactionSum = transactionSum;
     }
 

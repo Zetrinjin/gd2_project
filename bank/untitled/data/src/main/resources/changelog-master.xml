@@ -21,7 +21,7 @@
         <sql>
             CREATE TABLE IF NOT EXISTS t_transaction(
             transaction_id VARCHAR(255) NOT NULL,
-            transaction_sum VARCHAR(255) NOT NULL,
+            transaction_sum DECIMAL(8,2) NOT NULL,
             card_sender VARCHAR(255) NOT NULL,
             card_recipient VARCHAR(255) NOT NULL,
             PRIMARY KEY (transaction_id)
@@ -46,7 +46,7 @@
             card_id VARCHAR(255) NOT NULL,
             card_name VARCHAR(255) NOT NULL,
             card_number VARCHAR(255) NOT NULL,
-            card_balance VARCHAR(255) NOT NULL,
+            card_balance DECIMAL(8,2) NOT NULL,
             card_cvv VARCHAR(255)  NOT NULL,
             PRIMARY KEY (card_id)
             );
@@ -63,5 +63,7 @@
             );
         </sql>
     </changeSet>
+
+
 
 </databaseChangeLog>

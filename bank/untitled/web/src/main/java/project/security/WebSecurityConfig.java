@@ -12,9 +12,10 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 import project.data.DataConfiguration;
+import project.service.ServiceConfiguration;
 
 @Configuration
-@Import({DataConfiguration.class})
+@Import({DataConfiguration.class, ServiceConfiguration.class})
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled = true)
 public class WebSecurityConfig {
@@ -33,8 +34,9 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(Customizer.withDefaults())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/home","/registration", "/static/**", "/WEB-INF/jsp/**").permitAll()
-                        .requestMatchers("/login", "/api/**").anonymous()
+                        .requestMatchers("/", "/home","/registration", "/news","/converter",
+                                "/static/**", "/WEB-INF/jsp/**").permitAll()
+                        .requestMatchers("/login").anonymous()
                         .requestMatchers("/logout").authenticated()
                         .requestMatchers("/delete**").hasRole("ADMIN")
                         .anyRequest().authenticated()

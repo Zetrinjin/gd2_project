@@ -11,16 +11,16 @@ public class CreditDto {
     private String sumCredit;
 
 
-    private String creditPeriod;
+    private String creditPercent;
 
 
     public CreditDto() {
     }
 
-    public CreditDto(String creditId, String sumCredit, String creditPeriod) {
+    public CreditDto(String creditId, String sumCredit, String creditPercent) {
         this.id = creditId;
         this.sumCredit = sumCredit;
-        this.creditPeriod = creditPeriod;
+        this.creditPercent = creditPercent;
 
     }
 
@@ -40,12 +40,19 @@ public class CreditDto {
         this.sumCredit = sumCredit;
     }
 
-    public String getCreditPeriod() {
-        return creditPeriod;
+    public String getId() {
+        return id;
     }
 
-    public void setCreditPeriod(String creditPeriod) {
-        this.creditPeriod = creditPeriod;
+    public void setId(String id) {
+        this.id = id;
     }
 
+    public String getCreditPercent() {
+        return creditPercent;
+    }
+
+    public void setCreditPercent(String creditPercent) {
+        this.creditPercent = creditPercent;
+    }
 }

@@ -12,19 +12,16 @@ public class CardsDto {
 
     private String cardName;
 
-
-    private double cardNumber;
-
+    private String cardNumber;
 
     private double cardBalance;
-
 
     private int cvv;
 
     public CardsDto() {
     }
 
-    public CardsDto(String id, String cardName, double cardNumber, double cardBalance, int cvv) {
+    public CardsDto(String id, String cardName, String cardNumber, double cardBalance, int cvv) {
         this.id = id;
         this.cardName = cardName;
         this.cardNumber = cardNumber;
@@ -56,11 +53,11 @@ public class CardsDto {
         this.cardName = cardName;
     }
 
-    public double getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(double cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 

@@ -5,22 +5,17 @@
 
 
 <div>
-<form method="post" action="/web/cards">
-  <label for="currency">Сurrency:</label><br>
- <form>
-   <input type="radio" id="Byn" name="currency" value="BYN">
-   <label for="BYN">BYN</label>
-   <input type="radio" id="Usd" name="currency" value="USD">
-   <label for="USD">USD</label>
-   <input type="radio" id="Rub" name="currency" value="RUB">
-   <label for="RUB">RUB</label>
- </form>
- <label for="credit_period">Credit period:</label><br>
-  <input type="number" id="period" name="period" ><br>
-  <label for="credit_sum">Credit sum:</label><br>
-  <input type="number" id="credit_sum" name="credit_sum" ><br><br>
-  <input type="submit" value="Submit">
-</form>
+<h2>Создание новой карты </h2>
+
+    <form method="post" action="/web/cards"  >
+        <label for="cardName">Имя Фамилия (латинскими букавами)</label>
+        <input type="text" id="cardName" name="cardName" required ><br>
+
+
+        <input type="submit" value="Создать" >
+    </form>
  </div>
+
+ <p>пусть будет какая то надпись</p>
 
 <%@include file="footer.jsp"%>

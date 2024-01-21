@@ -14,19 +14,18 @@ public class AccountServiceImpl implements AccountService{
 
     @Autowired
     private AccountDao accountDao;
-
     @Autowired
     private BankUserDao bankUserDao;
     @Override
     public void createBankAccount(AccountDto accountDto, String userId) {
         Account account = new Account();
-        account.setAccountNumber(AccountNumber());
+        account.setAccountNumber(accountNumber());
         account.setAccountCurrency(accountDto.getAccountCurrency());
         account.setUser(bankUserDao.getUserById(userId));
         accountDao.createAccount(account);
     }
 
-    private String AccountNumber(){
+    private String accountNumber(){
 
         int accountNum = 16;
         Random random =new Random();

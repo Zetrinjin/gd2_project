@@ -10,8 +10,8 @@ import java.util.List;
 @Table(name = "t_bank_user")
 public class BankUser {
     @Id
-    @GenericGenerator(strategy = "uuid", name = "person_uuid")
-    @GeneratedValue(generator = "person_uuid")
+    @GenericGenerator(strategy = "uuid", name = "bank_uuid")
+    @GeneratedValue(generator = "bank_uuid")
     @Column(name = "user_id")
     private String id;
 
@@ -27,8 +27,8 @@ public class BankUser {
     @OneToMany(mappedBy = "bankUser", cascade = CascadeType.ALL)
     private List<Account> accounts;
 
-    @OneToMany(mappedBy = "bankUser")
-    private List<Credit> credits;
+    /*@OneToMany(mappedBy = "bankUser")
+    private List<Credit> credits;*/
 
     public BankUser() {
     }
@@ -56,6 +56,14 @@ public class BankUser {
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
     }
+
+    /*public List<Credit> getCredits() {
+        return credits;
+    }
+
+    public void setCredits(List<Credit> credits) {
+        this.credits = credits;
+    }*/
 
     public String getId() {
         return id;

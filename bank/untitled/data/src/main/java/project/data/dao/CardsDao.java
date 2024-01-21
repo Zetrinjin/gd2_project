@@ -10,4 +10,6 @@ public interface CardsDao {
     void updateCard(Cards cards);
 
     boolean deleteCard(Cards cards);
+
+    Cards getCardByNumber(String cardNumber);
 }

@@ -10,8 +10,8 @@ import java.util.List;
 public class Account {
 
     @Id
-    @GenericGenerator(strategy = "uuid", name = "person_uuid")
-    @GeneratedValue(generator = "person_uuid")
+    @GenericGenerator(strategy = "uuid", name = "account_uuid")
+    @GeneratedValue(generator = "account_uuid")
     @Column(name = "account_id")
     private String id;
 
@@ -25,8 +25,8 @@ public class Account {
     @JoinColumn(name = "user_id")
     private BankUser bankUser;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<Cards> cards;
+    /*@OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<Cards> cards;*/
 
     public Account() {
     }
@@ -69,11 +69,11 @@ public class Account {
         this.bankUser = bankUser;
     }
 
-    public List<Cards> getCards() {
+    /*public List<Cards> getCards() {
         return cards;
     }
 
     public void setCards(List<Cards> cards) {
         this.cards = cards;
-    }
+    }*/
 }

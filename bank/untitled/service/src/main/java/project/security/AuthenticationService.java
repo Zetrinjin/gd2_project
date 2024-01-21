@@ -17,7 +17,7 @@ import java.util.List;
 public class AuthenticationService implements UserDetailsService {
 
     @Autowired
-    private BankUserDao bankUserDao;
+    BankUserDao bankUserDao;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
@@ -37,5 +37,5 @@ public class AuthenticationService implements UserDetailsService {
             throw new UsernameNotFoundException("BankUser not found: " + username, e);
         }
     }
-    }
+}
 
