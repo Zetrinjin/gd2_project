@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService{
         BankUser bankUser = new BankUser();
         bankUser.setUserName(bankUserDto.getUserName());
         bankUser.setPassword(bankUserDto.getPassword());
-        bankUser.setRole(UserRole.ROLE_USER.toString());
+        bankUser.setRole(UserRole.USER.toString());
         bankUserDao.createUser(bankUser);
     }
 }
