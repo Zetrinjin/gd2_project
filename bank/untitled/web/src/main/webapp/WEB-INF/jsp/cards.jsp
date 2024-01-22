@@ -8,7 +8,7 @@
 <h2>Создание новой карты </h2>
 
     <form method="post" action="/web/cards"  >
-        <label for="cardName">Имя Фамилия (латинскими букавами)</label>
+        <label for="cardName">Имя </label>
         <input type="text" id="cardName" name="cardName" required ><br>
 
 

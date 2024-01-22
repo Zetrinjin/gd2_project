@@ -75,7 +75,8 @@ public class DataConfiguration {
                 BankUser.class,
                 Cards.class,
                 Credit.class,
-                Transaction.class
+                Transaction.class,
+                News.class
         );
         return sessionFactory;
     }

@@ -12,13 +12,13 @@ import project.data.pojo.BankUser;
 
 import java.util.List;
 
-@SuppressWarnings({"unused"})
+
 @Service
 public class AuthenticationService implements UserDetailsService {
 
     @Autowired
-    private BankUserDao bankUserDao;
-    @Override
+     BankUserDao bankUserDao;
+    /*@Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
             List<BankUser> appUsers = bankUserDao.findByUserName(username);
@@ -36,7 +36,7 @@ public class AuthenticationService implements UserDetailsService {
         } catch (Exception e) {
             throw new UsernameNotFoundException("BankUser not found: " + username, e);
         }
-    }
+    }*/
 
    /* @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -59,7 +59,7 @@ public class AuthenticationService implements UserDetailsService {
         }
     }*/
 
-   /* @Override
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
             BankUser bankUser = bankUserDao.findByUserNameOne(username);
@@ -70,14 +70,13 @@ public class AuthenticationService implements UserDetailsService {
             return new org.springframework.security.core.userdetails.User(
                     bankUser.getUserName(),
                     bankUser.getPassword(),
-                    true, true, true, true,
                     List.of(new SimpleGrantedAuthority(bankUser.getRole()))
             );
 
         } catch (Exception e) {
             throw new UsernameNotFoundException("BankUser not found: " + username, e);
         }
-    }*/
+    }
 
 
 }
