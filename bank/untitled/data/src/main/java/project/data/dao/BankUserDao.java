@@ -16,5 +16,7 @@ public interface BankUserDao {
 
     List<BankUser> findByUserName(String username);
 
+    BankUser findByUserNameOne(String username);
+
 
 }

@@ -2,9 +2,12 @@ package project.data.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import project.data.pojo.BankUser;
+import project.data.pojo.Cards;
 
 import java.util.List;
 
@@ -14,6 +17,7 @@ public class BankUserDaoImpl implements BankUserDao {
 
     private final SessionFactory sessionFactory;
 
+    @Autowired
     public BankUserDaoImpl(SessionFactory sessionFactory) {
         if (sessionFactory == null) {
             throw new IllegalArgumentException("An argument sessionFactory cannot be null");
@@ -53,17 +57,24 @@ public class BankUserDaoImpl implements BankUserDao {
     @Override
     public List<BankUser> getAllUsers() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("FROM BankUser", BankUser.class).getResultList();
+        return session.createQuery("FROM User", BankUser.class).getResultList();
     }
 
     @Override
     public List<BankUser> findByUserName(String username) {
         return sessionFactory.getCurrentSession()
-                .createQuery("from BankUser au where au.username=:username", BankUser.class)
+                .createQuery("from User au where au.username=:username", BankUser.class)
                 .setParameter("username", username)
                 .list();
     }
 
-
+    @Override
+    public BankUser findByUserNameOne(String username) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "FROM User where username = :username";
+        Query<BankUser> query = session.createQuery(hql,BankUser.class);
+        query.setParameter("username", username);
+        return query.uniqueResult();
+    }
 
 }

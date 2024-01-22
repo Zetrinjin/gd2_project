@@ -17,7 +17,7 @@ import java.util.List;
 public class AuthenticationService implements UserDetailsService {
 
     @Autowired
-    BankUserDao bankUserDao;
+    private BankUserDao bankUserDao;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
@@ -37,5 +37,48 @@ public class AuthenticationService implements UserDetailsService {
             throw new UsernameNotFoundException("BankUser not found: " + username, e);
         }
     }
+
+   /* @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        try {
+           BankUser bankUser = bankUserDao.findByUserNameOne(username);
+            if (bankUser ==null) {
+                throw new UsernameNotFoundException("BankUser not found: " + username);
+            }
+           // BankUser appUser = appUsers.get(0);
+
+            UserDetails user = User.builder()
+                    .username(bankUser.getUserName())
+                    .password(bankUser.getPassword())
+                    .roles(bankUser.getRole())
+                    .build();
+            return user;
+
+        } catch (Exception e) {
+            throw new UsernameNotFoundException("BankUser not found: " + username, e);
+        }
+    }*/
+
+   /* @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        try {
+            BankUser bankUser = bankUserDao.findByUserNameOne(username);
+            if (bankUser ==null) {
+                throw new UsernameNotFoundException("BankUser not found: " + username);
+            }
+
+            return new org.springframework.security.core.userdetails.User(
+                    bankUser.getUserName(),
+                    bankUser.getPassword(),
+                    true, true, true, true,
+                    List.of(new SimpleGrantedAuthority(bankUser.getRole()))
+            );
+
+        } catch (Exception e) {
+            throw new UsernameNotFoundException("BankUser not found: " + username, e);
+        }
+    }*/
+
+
 }
 

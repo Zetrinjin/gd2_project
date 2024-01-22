@@ -11,10 +11,7 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping(value = "/news")
-    public String getNews() {
-        return "news";
-    }
+
 
     @GetMapping(value = "/converter")
     public String getConv() {

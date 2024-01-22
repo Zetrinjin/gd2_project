@@ -7,10 +7,10 @@
 
     <changeSet id="1" author="nikita">
         <sql>
-            CREATE TABLE IF NOT EXISTS t_bank_user (
+            CREATE TABLE IF NOT EXISTS t_user (
             user_id VARCHAR(255) NOT NULL,
             user_name VARCHAR(255) NOT NULL,
-            user_password VARCHAR(255) NOT NULL,
+            password VARCHAR(255) NOT NULL,
             user_role VARCHAR(255) NOT NULL,
             PRIMARY KEY (user_id)
             );
@@ -63,6 +63,43 @@
             );
         </sql>
     </changeSet>
+
+
+
+    <changeSet id="6" author="nikita">
+        <sql>
+            INSERT INTO t_user VALUES ('aaaabbbbccccddddeeeeffff00000001', 'admin', 'admin', 'ROLE_ADMIN');
+        </sql>
+    </changeSet>
+
+    <changeSet id="7" author="nikita">
+        <sql>
+            CREATE TABLE IF NOT EXISTS t_news(
+            news_id int NOT NULL,
+            title VARCHAR(255) NOT NULL,
+            headline VARCHAR(255) NOT NULL,
+            PRIMARY KEY (news_id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="8" author="nikita">
+        <sql>
+            insert into t_news (news_id, title, headline) values
+            (1,'news1','headline1'),
+            (2,'news2','headline2'),
+            (3,'news3','headline3'),
+            (4,'news4','headline4'),
+            (5,'news5','headline5'),
+            (6,'news6','headline6'),
+            (7,'news7','headline7'),
+            (8,'news8','headline8'),
+            (9,'news9','headline9'),
+            (10,'news10','headline10'),
+            (11,'news11','headline11');
+        </sql>
+    </changeSet>
+
 
 
 

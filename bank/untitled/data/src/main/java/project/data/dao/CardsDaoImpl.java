@@ -3,6 +3,7 @@ package project.data.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import project.data.pojo.Cards;
@@ -13,6 +14,7 @@ public class CardsDaoImpl implements CardsDao{
 
     private final SessionFactory sessionFactory;
 
+    @Autowired
     public CardsDaoImpl(SessionFactory sessionFactory) {
         if (sessionFactory == null) {
             throw new IllegalArgumentException("An argument sessionFactory cannot be null");

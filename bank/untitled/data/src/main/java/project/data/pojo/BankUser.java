@@ -5,9 +5,10 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
-@Table(name = "t_bank_user")
+@Table(name = "t_user")
 public class BankUser {
     @Id
     @GenericGenerator(strategy = "uuid", name = "bank_uuid")
@@ -16,9 +17,9 @@ public class BankUser {
     private String id;
 
     @Column(name = "user_name")
-    private String userName;
+    private String username;
 
-    @Column(name = "user_password")
+    @Column(name = "password")
     private String password;
 
     @Column(name = "user_role")
@@ -34,9 +35,9 @@ public class BankUser {
     }
 
 
-    public BankUser(String id, String userName, String password, String role) {
+    public BankUser(String id, String username, String password, String role) {
         this.id = id;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.role = role;
     }
@@ -74,11 +75,11 @@ public class BankUser {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassword() {
@@ -87,5 +88,18 @@ public class BankUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BankUser bankUser = (BankUser) o;
+        return id.equals(bankUser.id) && username.equals(bankUser.username) && password.equals(bankUser.password) && role.equals(bankUser.role) && Objects.equals(accounts, bankUser.accounts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password, role, accounts);
     }
 }

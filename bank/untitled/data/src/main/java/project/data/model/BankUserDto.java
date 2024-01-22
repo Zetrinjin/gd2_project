@@ -7,7 +7,7 @@ public class BankUserDto {
     private String id;
 
 
-    private String userName;
+    private String username;
 
     private String password;
 
@@ -17,9 +17,9 @@ public class BankUserDto {
     }
 
 
-    public BankUserDto(String id, String userName, String password, String role) {
+    public BankUserDto(String id, String username, String password, String role) {
         this.id = id;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.role = role;
     }
@@ -41,11 +41,11 @@ public class BankUserDto {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassword() {
