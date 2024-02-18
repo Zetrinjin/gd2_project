@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import project.data.dao.BankUserDao;
+import project.data.dao.ClientDao;
 import project.data.model.AccountDto;
-import project.data.pojo.BankUser;
+import project.data.pojo.Client;
 import project.service.AccountService;
 
 @Controller
@@ -19,23 +19,23 @@ public class Account {
     private AccountService accountService;
 
     @Autowired
-    private BankUserDao bankUserDao;
+    private ClientDao clientDao;
     @GetMapping(value = "/account")
     public String getAccountPage() {
         return "account";
     }
 
 
-   /* @PostMapping(value = "/account")
+    @PostMapping(value = "/account")
     public String createAccount(Authentication authentication, @ModelAttribute("accountDto") AccountDto accountDto){
 
         if(authentication !=null){
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String username = userDetails.getUsername();
-            BankUser bankUser =(BankUser) bankUserDao.findByUserName(username);
-            String bankUserId = bankUser.getId();
-            accountService.createBankAccount(accountDto,bankUserId);
+            Client client =clientDao.findByUserNameOne(username);
+            String clientId = client.getId();
+            accountService.createBankAccount(accountDto,clientId);
         }
         return "redirect:/registraited";
-    }*/
+    }
 }

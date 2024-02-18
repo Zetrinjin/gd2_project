@@ -12,5 +12,7 @@ public interface NewsDao {
 
     /*Page<News> findPaginated(int pageNo, int pageSize);*/
 
+    List<News> getAllNews();
+
     int getTotalCount();
 }

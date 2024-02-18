@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "t_user")
-public class BankUser {
+@Table(name = "Client")
+public class Client {
     @Id
     @GenericGenerator(strategy = "uuid", name = "bank_uuid")
     @GeneratedValue(generator = "bank_uuid")
@@ -25,17 +25,17 @@ public class BankUser {
     @Column(name = "user_role")
     private String role;
 
-    @OneToMany(mappedBy = "bankUser", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<Account> accounts;
 
     /*@OneToMany(mappedBy = "bankUser")
     private List<Credit> credits;*/
 
-    public BankUser() {
+    public Client() {
     }
 
 
-    public BankUser(String id, String username, String password, String role) {
+    public Client(String id, String username, String password, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -94,12 +94,12 @@ public class BankUser {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BankUser bankUser = (BankUser) o;
-        return id.equals(bankUser.id) && username.equals(bankUser.username) && password.equals(bankUser.password) && role.equals(bankUser.role) && Objects.equals(accounts, bankUser.accounts);
+        Client client = (Client) o;
+        return id.equals(client.id) && username.equals(client.username) && password.equals(client.password) && role.equals(client.role) /*&& Objects.equals(accounts, client.accounts)*/;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, role, accounts);
+        return Objects.hash(id, username, password, role/*, accounts*/);
     }
 }

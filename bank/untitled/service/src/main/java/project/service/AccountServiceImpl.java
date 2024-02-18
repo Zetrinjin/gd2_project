@@ -3,7 +3,7 @@ package project.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.data.dao.AccountDao;
-import project.data.dao.BankUserDao;
+import project.data.dao.ClientDao;
 import project.data.model.AccountDto;
 import project.data.pojo.Account;
 
@@ -15,13 +15,13 @@ public class AccountServiceImpl implements AccountService{
     @Autowired
     private AccountDao accountDao;
     @Autowired
-    private BankUserDao bankUserDao;
+    private ClientDao clientDao;
     @Override
     public void createBankAccount(AccountDto accountDto, String userId) {
         Account account = new Account();
         account.setAccountNumber(accountNumber());
         account.setAccountCurrency(accountDto.getAccountCurrency());
-        account.setUser(bankUserDao.getUserById(userId));
+        account.setUser(clientDao.getUserById(userId));
         accountDao.createAccount(account);
     }
 

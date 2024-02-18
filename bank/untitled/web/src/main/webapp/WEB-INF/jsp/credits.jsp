@@ -18,7 +18,7 @@
                                       <option value="8">8%</option>
 
                           </select>
-  <input type="submit" value="стать рабом!">
+  <input type="submit" value="Взять!">
 </form>
 
 

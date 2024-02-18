@@ -2,24 +2,24 @@ package project.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.data.dao.BankUserDao;
-import project.data.model.BankUserDto;
+import project.data.dao.ClientDao;
+import project.data.model.ClientDto;
 import project.data.model.UserRole;
-import project.data.pojo.BankUser;
+import project.data.pojo.Client;
 
 @Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
-    private BankUserDao bankUserDao;
+    private ClientDao clientDao;
 
     @Override
-    public void registration(BankUserDto bankUserDto) {
+    public void registration(ClientDto clientDto) {
 
-        BankUser bankUser = new BankUser();
-        bankUser.setUserName(bankUserDto.getUserName());
-        bankUser.setPassword(bankUserDto.getPassword());
-        bankUser.setRole(UserRole.ROLE_USER.toString());
-        bankUserDao.createUser(bankUser);
+        Client client = new Client();
+        client.setUserName(clientDto.getUserName());
+        client.setPassword(clientDto.getPassword());
+        client.setRole(UserRole.ROLE_USER.toString());
+        clientDao.createUser(client);
     }
 }

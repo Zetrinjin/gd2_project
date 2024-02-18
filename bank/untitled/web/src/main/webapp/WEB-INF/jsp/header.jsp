@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,11 +16,11 @@
     <a class="nav-link active" aria-current="page" href="/web/credits">credits</a>
     <a class="nav-link active" aria-current="page" href="/web/registration">registration</a>
     <a class="nav-link active" aria-current="page" href="/web/transaction">transaction</a>
-    <sec:authorize access="isAuthenticated()">
-        <a class="nav-link" href="/web/logout">Logout</a>
-    </sec:authorize>
-    <sec:authorize access="!isAuthenticated()">
-        <a class="nav-link" href="/web/login">Login</a>
-    </sec:authorize>
-    <a class="nav-link disabled" aria-disabled="true">Help</a>
+     <sec:authorize access="isAuthenticated()">
+            <a class="nav-link" href="/web/logout">Logout</a>
+        </sec:authorize>
+        <sec:authorize access="!isAuthenticated()">
+            <a class="nav-link" href="/web/login">Login</a>
+        </sec:authorize>
+        <a class="nav-link disabled" aria-disabled="true">Help</a>
 </nav>

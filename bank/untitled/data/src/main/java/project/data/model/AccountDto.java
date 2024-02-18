@@ -1,6 +1,6 @@
 package project.data.model;
 
-import project.data.pojo.BankUser;
+import project.data.pojo.Client;
 
 public class AccountDto {
 
@@ -10,16 +10,23 @@ public class AccountDto {
 
     private String accountCurrency;
 
-    private BankUser bankUser;
+    private Client client;
 
     public AccountDto() {
     }
 
-    public AccountDto(String accountId, String accountNumber, String accountCurrency) {
+    public AccountDto(String id, String accountNumber, String accountCurrency, Client client) {
+        this.id = id;
+        this.accountNumber = accountNumber;
+        this.accountCurrency = accountCurrency;
+        this.client = client;
+    }
+
+    /*public AccountDto(String accountId, String accountNumber, String accountCurrency) {
         this.id = accountId;
         this.accountNumber = accountNumber;
         this.accountCurrency = accountCurrency;
-    }
+    }*/
 
 
 
@@ -47,11 +54,11 @@ public class AccountDto {
         this.accountCurrency = accountCurrency;
     }
 
-    public BankUser getUser() {
-        return bankUser;
+    public Client getUser() {
+        return client;
     }
 
-    public void setUser(BankUser bankUser) {
-        this.bankUser = bankUser;
+    public void setUser(Client client) {
+        this.client = client;
     }
 }

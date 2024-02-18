@@ -1,8 +1,8 @@
 package project.service;
 
-import project.data.model.BankUserDto;
+import project.data.model.ClientDto;
 
 public interface UserService {
 
-    void registration(BankUserDto bankUserDto);
+    void registration(ClientDto clientDto);
 }

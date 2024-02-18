@@ -6,19 +6,18 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import project.data.pojo.BankUser;
-import project.data.pojo.Cards;
+import project.data.pojo.Client;
 
 import java.util.List;
 
 @Repository
 @Transactional
-public class BankUserDaoImpl implements BankUserDao {
+public class ClientDaoImpl implements ClientDao {
 
     private final SessionFactory sessionFactory;
 
     @Autowired
-    public BankUserDaoImpl(SessionFactory sessionFactory) {
+    public ClientDaoImpl(SessionFactory sessionFactory) {
         if (sessionFactory == null) {
             throw new IllegalArgumentException("An argument sessionFactory cannot be null");
         }
@@ -26,53 +25,53 @@ public class BankUserDaoImpl implements BankUserDao {
     }
 
     @Override
-    public void createUser(BankUser bankUser) {
+    public void createUser(Client client) {
         Session session = sessionFactory.getCurrentSession();
-        session.persist(bankUser);
+        session.persist(client);
 
     }
 
     @Override
-    public BankUser getUserById(String id) {
+    public Client getUserById(String id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(BankUser.class, id);
+        return session.get(Client.class, id);
     }
 
     @Override
-    public void updateUser(BankUser bankUser) {
+    public void updateUser(Client client) {
         Session session = sessionFactory.getCurrentSession();
-        session.merge(bankUser);
+        session.merge(client);
 
     }
 
     @Override
-    public boolean deleteUser(BankUser bankUser) {
+    public boolean deleteUser(Client client) {
         Session session = sessionFactory.getCurrentSession();
-        if (bankUser == null) return false;
-        session.remove(bankUser);
+        if (client == null) return false;
+        session.remove(client);
         return true;
 
     }
 
     @Override
-    public List<BankUser> getAllUsers() {
+    public List<Client> getAllUsers() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("FROM User", BankUser.class).getResultList();
+        return session.createQuery("FROM Client", Client.class).getResultList();
     }
 
     @Override
-    public List<BankUser> findByUserName(String username) {
+    public List<Client> findByUserName(String username) {
         return sessionFactory.getCurrentSession()
-                .createQuery("from User au where au.username=:username", BankUser.class)
+                .createQuery("from Client  where username=:username", Client.class)
                 .setParameter("username", username)
                 .list();
     }
 
     @Override
-    public BankUser findByUserNameOne(String username) {
+    public Client findByUserNameOne(String username) {
         Session session = sessionFactory.getCurrentSession();
-        String hql = "FROM User where username = :username";
-        Query<BankUser> query = session.createQuery(hql,BankUser.class);
+        String hql = "FROM Client where username = :username";
+        Query<Client> query = session.createQuery(hql, Client.class);
         query.setParameter("username", username);
         return query.uniqueResult();
     }

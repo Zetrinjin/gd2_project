@@ -1,7 +1,7 @@
 package project.data.model;
 
 
-public class BankUserDto {
+public class ClientDto {
 
 
     private String id;
@@ -13,11 +13,11 @@ public class BankUserDto {
 
     private String role;
 
-    public BankUserDto() {
+    public ClientDto() {
     }
 
 
-    public BankUserDto(String id, String username, String password, String role) {
+    public ClientDto(String id, String username, String password, String role) {
         this.id = id;
         this.username = username;
         this.password = password;

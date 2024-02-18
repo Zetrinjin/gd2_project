@@ -5,10 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import project.data.model.BankUserDto;
 import project.data.model.TransactionDto;
 import project.service.TransactionService;
-import project.service.UserService;
 
 @Controller
 public class Transaction {

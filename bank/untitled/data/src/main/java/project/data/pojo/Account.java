@@ -3,8 +3,6 @@ package project.data.pojo;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.List;
-
 @Entity
 @Table(name = "t_account")
 public class Account {
@@ -23,7 +21,7 @@ public class Account {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private BankUser bankUser;
+    private Client client;
 
     /*@OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Cards> cards;*/
@@ -61,12 +59,12 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
-    public BankUser getUser() {
-        return bankUser;
+    public Client getUser() {
+        return client;
     }
 
-    public void setUser(BankUser bankUser) {
-        this.bankUser = bankUser;
+    public void setUser(Client client) {
+        this.client = client;
     }
 
     /*public List<Cards> getCards() {

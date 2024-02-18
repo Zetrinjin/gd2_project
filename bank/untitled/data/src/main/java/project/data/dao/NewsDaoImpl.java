@@ -27,6 +27,12 @@ public class NewsDaoImpl implements NewsDao{
     }
 
     @Override
+    public List<News> getAllNews() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("FROM News", News.class).getResultList();
+    }
+
+    @Override
     public List<News> getPagination(int startPosition, int pageSize) {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("FROM News", News.class)

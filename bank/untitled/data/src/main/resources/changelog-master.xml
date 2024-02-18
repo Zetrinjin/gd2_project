@@ -7,7 +7,7 @@
 
     <changeSet id="1" author="nikita">
         <sql>
-            CREATE TABLE IF NOT EXISTS t_user (
+            CREATE TABLE IF NOT EXISTS client (
             user_id VARCHAR(255) NOT NULL,
             user_name VARCHAR(255) NOT NULL,
             password VARCHAR(255) NOT NULL,
@@ -68,14 +68,14 @@
 
     <changeSet id="6" author="nikita">
         <sql>
-            INSERT INTO t_user VALUES ('aaaabbbbccccddddeeeeffff00000001', 'admin', 'admin', 'ROLE_ADMIN');
+            INSERT INTO client VALUES ('aaaabbbbccccddddeeeeffff00000001', 'admin', 'admin', 'ROLE_ADMIN');
         </sql>
     </changeSet>
 
     <changeSet id="7" author="nikita">
         <sql>
             CREATE TABLE IF NOT EXISTS t_news(
-            news_id int NOT NULL,
+            news_id int auto_increment,
             title VARCHAR(255) NOT NULL,
             headline VARCHAR(255) NOT NULL,
             PRIMARY KEY (news_id)
@@ -100,6 +100,14 @@
         </sql>
     </changeSet>
 
+    <changeSet id="9" author="nikita">
+        <sql>
+           alter table t_account
+            add column user_id  varchar(255),
+            add constraint fk_client
+            foreign key (user_id) references client(user_id);
+        </sql>
+    </changeSet>
 
 
 

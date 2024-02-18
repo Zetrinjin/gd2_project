@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import project.data.model.BankUserDto;
+import project.data.model.ClientDto;
 import project.service.UserService;
 
 @Controller
@@ -20,8 +20,8 @@ public class Registration {
     }
 
     @PostMapping("/registration")
-    public String saveUser(@ModelAttribute("registration") BankUserDto bankUserDto){
-        userService.registration(bankUserDto);
+    public String saveUser(@ModelAttribute("registration") ClientDto clientDto){
+        userService.registration(clientDto);
         return "redirect:/home";
 
     }

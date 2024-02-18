@@ -72,7 +72,7 @@ public class DataConfiguration {
         sessionFactory.setDataSource(dataSource);
         sessionFactory.setAnnotatedClasses(
                 Account.class,
-                BankUser.class,
+                Client.class,
                 Cards.class,
                 Credit.class,
                 Transaction.class,

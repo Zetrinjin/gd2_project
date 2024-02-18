@@ -1,6 +1,7 @@
 package project.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ public class Newss {
     public String getNewss() {
         return "news";
     }*/
-    @GetMapping("/news")
+   /* @GetMapping("/news")
     public String getNews(Model model )  {
         int pageSize=4;
         int page = 1;
@@ -36,6 +37,16 @@ public class Newss {
 
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", totalPages);
+        return "news";
+    }*/
+
+    @Secured("ROLE_ADMIN")
+    @GetMapping(value = "/news")
+    public String takeNews(Model model){
+
+        List<News> news = newsDao.getAllNews();
+        model.addAttribute("newsList",news);
+
         return "news";
     }
 }
