@@ -18,13 +18,17 @@ public class NewsDaoImpl implements NewsDao{
 
     private final SessionFactory sessionFactory;
 
-    @Autowired
+    public NewsDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    /*@Autowired
     public NewsDaoImpl(SessionFactory sessionFactory) {
         if (sessionFactory == null) {
             throw new IllegalArgumentException("An argument sessionFactory cannot be null");
         }
         this.sessionFactory = sessionFactory;
-    }
+    }*/
 
     @Override
     public List<News> getAllNews() {

@@ -75,7 +75,7 @@
     <changeSet id="7" author="nikita">
         <sql>
             CREATE TABLE IF NOT EXISTS t_news(
-            news_id int auto_increment,
+            news_id int not null,
             title VARCHAR(255) NOT NULL,
             headline VARCHAR(255) NOT NULL,
             PRIMARY KEY (news_id)

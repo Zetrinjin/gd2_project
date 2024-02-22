@@ -1,4 +1,3 @@
-/*
 package project.data.dao;
 
 import org.junit.After;
@@ -49,16 +48,14 @@ public class NewsDaoImplTest {
                 "            (3,'news14','headline3')");
         conn.close();
 
-        */
-/*List<News> expectedNews = new ArrayList<>();*//*
+    //List<News> expectedNews = new ArrayList<>();
 
 
 
         List<News> actualNews= newsDao.getAllNews();
 
         assertNotNull(actualNews);
-        */
-/*assertEquals(expectedNews.size(),actualNews.size());*//*
+        //assertEquals(expectedNews.size(),actualNews.size());
 
         assertEquals(3,actualNews.size());
         assertEquals("news12",actualNews.get(0).getTitle());
@@ -73,4 +70,4 @@ public class NewsDaoImplTest {
     @Test
     public void getTotalCount() {
     }
-}*/
+}

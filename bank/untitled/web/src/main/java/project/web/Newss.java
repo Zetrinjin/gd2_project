@@ -40,7 +40,7 @@ public class Newss {
         return "news";
     }*/
 
-    @Secured("ROLE_ADMIN")
+    //@Secured("ROLE_ADMIN")
     @GetMapping(value = "/news")
     public String takeNews(Model model){
 
